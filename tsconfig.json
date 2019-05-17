@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "target": "es6",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "strict": true,
+    "outDir": "./dist",
+    "forceConsistentCasingInFileNames": true,
+    "alwaysStrict": true,
+    "noEmitOnError": true,
+    "declaration": false,
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "allowSyntheticDefaultImports": true,
+}

@@ -1,0 +1,45 @@
+{
+  "rules": {
+    "no-string-throw": true,
+    "no-unused-expression": true,
+    "no-duplicate-variable": true,
+    "curly": true,
+    "class-name": true,
+    "arrow-return-shorthand": true,
+    "ban-comma-operator": true,
+    "unified-signatures": true,
+    "member-ordering": true,
+    "await-promise": true,
+    "promise-function-async": true,
+    "no-return-await": true,
+    "only-arrow-functions": true,
+    "triple-equals": true,
+    "adjacent-overload-signatures": true,
+    "no-debugger": true,
+    "no-eval": true,
+    "new-parens": true,
+    "import-spacing": true,
+    "no-this-assignment": true,
+    "prefer-const": true,
+    "member-access": true,
+    "max-classes-per-file": {
+      "options": [
+        1
+      ]
+    },
+    "quotemark": {
+      "options": "single"
+    },
+    "semicolon": [
+      true,
+      "always"
+    ],
+    "array-type": {
+      "options": "array"
+    },
+    "max-file-line-count": {
+      "options": 200
+    }
+  },
+  "defaultSeverity": "warning"
+}

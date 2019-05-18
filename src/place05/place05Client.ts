@@ -2,7 +2,7 @@ import * as request from 'request';
 
 export class Place05Client {
 
-    public fetchNurseries({ lat, lng, km }: { lat: number; lng: number; km: number; }): Promise<Place05Responses.ResultSet[]> {
+    public async fetchNurseries({ lat, lng, km }: { lat: number; lng: number; km: number; }): Promise<Place05Responses.ResultSet[]> {
         return new Promise<Place05Responses.ResultSet[]>((resolve, reject) => {
             request({
                 url: 'https://www.laplace0-5.com/in/rest/api/search',
@@ -21,7 +21,7 @@ export class Place05Client {
         });
     }
 
-    public fetchAvailablePlaces(id: string): Promise<Place05Responses.AvailablePlace[]> {
+    public async fetchAvailablePlaces(id: string): Promise<Place05Responses.AvailablePlace[]> {
         return new Promise<Place05Responses.AvailablePlace[]>((resolve, reject) => {
             request({
                 url: `https://www.laplace0-5.com/in/rest/sdgApi/getAvailablePlaces?id=${id}&_=${new Date().getTime()}`,

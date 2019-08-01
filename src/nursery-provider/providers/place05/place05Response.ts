@@ -1,4 +1,4 @@
-declare module Place05Responses {
+declare module Place05Response {
 
     export interface AvailablePlace {
         numberOfPlace: string;

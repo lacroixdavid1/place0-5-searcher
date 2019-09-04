@@ -1,9 +1,9 @@
 import * as inquirer from 'inquirer';
-import {Place05HttpClient} from './nursery-provider/providers/place05/place05HttpClient';
-import {NurseryProvider} from './nursery-provider/nurseryProvider';
-import {GoogleMap} from './google-map/googleMap';
+import { Place05HttpClient } from './nursery-provider/providers/place05/place05HttpClient';
+import { NurseryProvider } from './nursery-provider/nurseryProvider';
+import { GoogleMap } from './google-map/googleMap';
 import chalk from 'chalk';
-import {PlaceAutocompleteResult} from '@google/maps';
+import { PlaceAutocompleteResult } from '@google/maps';
 import ora = require('ora');
 
 inquirer.registerPrompt('autocomplete', require('inquirer-autocomplete-prompt'));
@@ -18,7 +18,7 @@ inquirer.registerPrompt('autocomplete', require('inquirer-autocomplete-prompt'))
             name: 'location',
             pageSize: 4,
             type: 'autocomplete',
-            source: (answersSoFar, input) => new Promise<ReadonlyArray<inquirer.ChoiceType<{ name: string, value: any }>>>(async (resolve, reject) => {
+            source: async (answersSoFar, input) => new Promise<ReadonlyArray<inquirer.ChoiceType<{ name: string, value: any }>>>(async (resolve, reject) => {
                 if (!input || !input.length) {
                     resolve([]);
                     return;
@@ -73,11 +73,11 @@ inquirer.registerPrompt('autocomplete', require('inquirer-autocomplete-prompt'))
 
     NurseryProvider.registerProvider(new Place05HttpClient());
 
-    const nurseryAvailability = await NurseryProvider.getSummary({
+    const nurseryAvailability = (await NurseryProvider.getSummary({
         km: answers.km,
         lat: googleMapPlace.geometry.location.lat,
         lng: googleMapPlace.geometry.location.lng
-    });
+    })).filter(x => x.availablePlaces.some(x => x.monthFrom <= answers.month));
 
     spinner.succeed();
     console.log('');
